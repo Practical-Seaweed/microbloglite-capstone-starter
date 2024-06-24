@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,36 +27,41 @@
         if (isLoggedIn() === true) window.location.replace("/posts");
     </script>
 </head>
+
 <body>
 
     <header>
-        <h1>Welcome to <code>YOUR MICROBLOG NETWORK</code></h1>
+        <h1 class="text-center">Welcome to <code>YOUR MICROBLOG NETWORK</code></h1>
     </header>
 
-    <main>
+    <main
+        class="container bg-dark-subtle w-25 border border-primary rounded d-flex align-items-center justify-content-center">
 
         <form id="login">
-            <div>
-                <label for="username">Username</label>
-                <input type="text" id="username" minlength="3">
+            <div class="mb-2 mt-3">
+                <label class="form-label" for="username">Username</label>
+                <input class="form-control" type="text" id="username" minlength="3">
             </div>
 
-            <div>
-                <label for="password">Password</label>
-                <input type="password" id="password" minlength="6">
+            <div class="mb-2">
+                <label class="form-label" for="password">Password</label>
+                <input class="form-control" type="password" id="password" minlength="6">
             </div>
 
-            <button id="loginButton" type="submit">Login</button>
+            <button class="btn btn-primary mt-3 mb-3" id="loginButton" type="submit">Login</button>
+
+            <br>
+
+            <p>Don't have an account?</p>
+            <a href="./register/index.html">Register Here!</a>
         </form>
 
     </main>
-
-    <p>Don't have an account?</p>
-    <a href="./register/index.html">Register Here!</a>
 
     <footer></footer>
 
     <!-- Page-specific code -->
     <script src="./landing.js"></script>
 </body>
+
 </html>
