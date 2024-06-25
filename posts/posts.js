@@ -4,6 +4,14 @@ window.onload = () => {
 
     getPostsByAsync();
 
+    const logoutLink = document.getElementById("logoutLink");
+    logoutLink.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        logout();
+        alert("You've logged out!");
+    })
+
 }
 
 const getPostsByAsync = async () => {

@@ -1,0 +1,40 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    padding: 20px;
+    background-color: #343a40;
+    color: #fff;
+    overflow-y: auto;
+}
+
+.sidebar h4 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar .nav-link {
+    color: #fff;
+}
+
+.sidebar .nav-link:hover {
+    color: #ccc;
+}
+
+header {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-bottom: 8px solid #ccc;
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 700px !important;
+}
