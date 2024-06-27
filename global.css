@@ -20,3 +20,8 @@
 p, a {
     display: inline;
 }
+
+/* Body styles */
+body {
+    background-color: #aee262;
+}

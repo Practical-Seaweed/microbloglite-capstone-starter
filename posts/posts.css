@@ -1,3 +1,4 @@
+/* Adjusting sidebar */
 .sidebar {
     position: fixed;
     top: 0;
@@ -8,29 +9,130 @@
     background-color: #343a40;
     color: #fff;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center items vertically */
 }
 
 .sidebar h4 {
     margin-bottom: 20px;
     font-size: 1.5rem;
+    color: #fff;
+    text-align: center; /* Center the text horizontally */
 }
 
 .sidebar ul {
     list-style-type: none;
     padding: 0;
+    text-align: center; /* Center the list items horizontally */
 }
 
 .sidebar .nav-link {
     color: #fff;
+    text-decoration: none;
 }
 
 .sidebar .nav-link:hover {
     color: #ccc;
 }
 
-header {
+/* General styling for the main content area */
+main {
+    margin-left: 270px; /* Adjusted to include sidebar width */
     padding: 20px;
-    background-color: #f8f9fa;
-    border-bottom: 8px solid #ccc;
+    max-width: calc(100% - 270px); /* Ensure it fits within the viewport */
+}
+
+/* Styling for header */
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #fbf665;
+    border-bottom: 8px solid #343a40;
     margin-bottom: 20px;
+    max-width: 100%; /* Ensure it spans the full width */
+}
+
+/* Adjusting the container for publishing posts */
+.container.bg-success-subtle {
+    margin: 20px auto; /* Center horizontally and add top margin */
+    padding: 20px;
+    width: 50%; /* Set a specific width */
+    max-width: calc(100% - 40px); /* Ensure it fits within the viewport */
+    display: flex;
+    justify-content: center;
+}
+
+/* General Container Styling */
+.user-posts-section {
+    margin-top: 20px;
+}
+
+/* Post Styling */
+.post {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Adjust width to fit content area */
+    max-width: 700px; /* Limit maximum width */
+    margin-left: auto; /* Center align */
+    margin-right: auto; /* Center align */
+}
+
+/* Post Header Styling */
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Username Styling */
+.post-username {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #343a40;
+}
+
+/* Post Text Styling */
+.post-text {
+    font-size: 1.1em;
+    margin: 10px 0;
+    color: #495057;
+}
+
+/* Post Likes Styling */
+.post-likes {
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    color: #6c757d;
+}
+
+.post-likes .bi-heart,
+.post-likes .bi-heart-fill {
+    cursor: pointer;
+    margin-right: 5px;
+    color: red;
+}
+
+/* Timestamp Styling */
+.post-timestamp {
+    font-size: 0.9em;
+    color: #adb5bd;
+    text-align: right;
+    margin-top: 10px;
+}
+
+/* Button Styling */
+.btn {
+    margin-top: 10px;
+}
+
+/* Remove scrollbar */
+html,
+body {
+    overflow-x: hidden; /* Hide horizontal scrollbar */
 }
