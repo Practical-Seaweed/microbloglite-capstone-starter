@@ -30,7 +30,7 @@ function isLoggedIn () {
 // landing page, in order to process a user's login. READ this code,
 // and feel free to re-use parts of it for other `fetch()` requests
 // you may need to write.
-function login (loginData) {
+function login (loginData, callback) {
     // POST /auth/login
     const options = { 
         method: "POST",
@@ -43,21 +43,23 @@ function login (loginData) {
         body: JSON.stringify(loginData),
     };
 
-    return fetch(apiBaseURL + "/auth/login", options)
+    fetch(apiBaseURL + "/auth/login", options)
         .then(response => response.json())
         .then(loginData => {
             if (loginData.message === "Invalid username or password") {
-                console.error(loginData)
-                // Here is where you might want to add an error notification 
-                // or other visible indicator to the page so that the user is  
-                // informed that they have entered the wrong login info.
-                return null
+                console.error(loginData);
+                callback(false); // Login failed
+                return;
             }
 
             window.localStorage.setItem("login-data", JSON.stringify(loginData));
             window.location.assign("/posts");  // redirect
 
-            return loginData;
+            callback(true); // Login succeeded
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            callback(false); // Login failed
         });
 }
 

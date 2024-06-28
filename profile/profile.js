@@ -50,49 +50,42 @@ const displayUserData = async () => {
         const formattedCreatedAt = dateTimeFormat.format(createdAt);
 
         const profileContainer = document.getElementById("profile-container");
-        profileContainer.innerHTML = `
-            <div class="card">
-                <div class="card-body text-center">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <h2 class="me-3">Welcome, ${userData.fullName}!</h2>
-                        <button class="btn btn-secondary" id="editFullNameButton"><i class="bi bi-pencil-square"></i> Edit</button>
-                    </div>
-                    <div class="d-flex justify-content-center align-items-center mt-2">
-                        <h5 id="username" class="me-3">Username: ${userData.username}</h5>
-                        <button class="btn btn-secondary" id="editUsernameButton"><i class="bi bi-pencil-square"></i> Edit</button>
-                    </div>
-                    <p class="mt-3">User Created: ${formattedCreatedAt}</p>
-                    <br>
+
+        // Create a card for profile data
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `
+            <div class="card-body text-center">
+                <div class="d-flex justify-content-center align-items-center mb-2">
+                    <h2 class="me-3">Welcome, <span id="fullName">${userData.fullName}</span>!</h2>
+                    <button class="btn btn-secondary" id="editFullNameButton"><i class="bi bi-pencil-square"></i> Edit Name</button>
+                </div>
+                <div class="d-flex justify-content-center align-items-center mt-2 mb-2">
+                    <h5 id="username" class="me-3">Username: ${userData.username}</h5>
+                </div>
+                <p class="mt-3">User Created: ${formattedCreatedAt}</p>
+                <div class="d-flex justify-content-center align-items-center mt-3">
                     <p>Bio: <span id="bio" class="fw-light">${userData.bio || "Pretty empty... Add some personality!"}</span></p>
-                    <button class="btn btn-secondary" id="editBioButton"><i class="bi bi-pencil-square"></i> Edit Bio</button>
+                    <button class="btn btn-secondary ms-3" id="editBioButton"><i class="bi bi-pencil-square"></i> Edit Bio</button>
                 </div>
             </div>
         `;
 
+        // Clear only the contents inside profileContainer, not the container itself
+        profileContainer.innerHTML = '';
+        profileContainer.appendChild(card);
+
+        // Add event listeners for edit buttons
         document.getElementById("editBioButton").addEventListener("click", showBioEditForm);
-        document.getElementById("editUsernameButton").addEventListener("click", showUsernameEditForm);
         document.getElementById("editFullNameButton").addEventListener("click", showFullNameEditForm);
     } catch (error) {
         console.error("Error fetching user data:", error);
     }
 };
 
-
-
-
-
-const showUsernameEditForm = () => {
-    const usernameElement = document.getElementById("username");
-    usernameElement.innerHTML = `
-        <input type="text" class="form-control" id="usernameInput" value="${usernameElement.textContent.split(': ')[1]}">
-        <button class="btn btn-primary mt-2" id="saveUsernameButton">Save</button>
-    `;
-    document.getElementById("saveUsernameButton").addEventListener("click", saveUsername);
-};
-
 const showFullNameEditForm = () => {
-    const fullNameElement = document.querySelector("h2");
-    const fullNameText = fullNameElement.textContent.replace('Welcome, ', '').replace('!', '');
+    const fullNameElement = document.getElementById("fullName");
+    const fullNameText = fullNameElement.textContent;
     fullNameElement.innerHTML = `
         <input type="text" class="form-control" id="fullNameInput" value="${fullNameText}">
         <button class="btn btn-primary mt-2" id="saveFullNameButton">Save</button>
@@ -109,32 +102,6 @@ const showBioEditForm = () => {
     document.getElementById("saveBioButton").addEventListener("click", saveBio);
 };
 
-const saveUsername = async () => {
-    try {
-        const loginData = getLoginData();
-        const newUsername = document.getElementById("usernameInput").value;
-
-        const response = await fetch(`http://microbloglite.us-east-2.elasticbeanstalk.com/api/users/${loginData.username}`, {
-            method: "PUT",
-            headers: {
-                "Authorization": `Bearer ${loginData.token}`,
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ username: newUsername })
-        });
-
-        if (!response.ok) {
-            const errorMessage = await response.text();
-            throw new Error(`Failed to update username. Server response: ${errorMessage}`);
-        }
-
-        alert("Username updated successfully!");
-        await displayUserData();
-    } catch (error) {
-        console.error("Error updating username:", error);
-        alert("An error occurred while updating the username. Please try again later!");
-    }
-};
 
 const saveFullName = async () => {
     try {

@@ -19,43 +19,49 @@
     <!-- Page-specific CSS -->
     <link rel="stylesheet" href="./landing.css">
 
-    <title>Login to the Microblog Network!</title>
+    <title>Login to ChatterBox</title>
 
     <!-- Run BEFORE page is finished loading (before window.onload - don't add the `defer` attribute): -->
     <script src="./auth.js"></script>
     <script>
         if (isLoggedIn() === true) window.location.replace("/posts");
     </script>
+
 </head>
 
 <body>
 
-    <header>
-        <h1 class="text-center">Welcome to <code>YOUR MICRO-BLOG NETWORK</code></h1>
-    </header>
+    <main>
+        <div class="content-wrapper">
+            <header>
+                <h1 class="text-center">Welcome to <code>ChatterBOX</code></h1>
+            </header>
+            <div class="container bg-dark-subtle w-25 border border-primary rounded">
+                <form id="login">
+                    <div class="mb-2 mt-3">
+                        <label class="form-label" for="username">Username</label>
+                        <input class="form-control" type="text" id="username" minlength="3">
+                    </div>
 
-    <main
-        class="container bg-dark-subtle w-25 border border-primary rounded d-flex align-items-center justify-content-center">
+                    <div class="mb-2">
+                        <label class="form-label" for="password">Password</label>
+                        <input class="form-control" type="password" id="password" minlength="6">
+                    </div>
 
-        <form id="login">
-            <div class="mb-2 mt-3">
-                <label class="form-label" for="username">Username</label>
-                <input class="form-control" type="text" id="username" minlength="3">
+                    <div class="mb-2">
+                        <label class="form-check-label" for="showPassword">Show Password</label>
+                        <input class="form-check-input" type="checkbox" id="showPassword">
+                    </div>
+
+                    <button class="btn btn-primary mt-3 mb-3" id="loginButton" type="submit">Login</button>
+
+                    <br>
+
+                    <p>Don't have an account?</p>
+                    <a href="./register/index.html">Register Here!</a>
+                </form>
             </div>
-
-            <div class="mb-2">
-                <label class="form-label" for="password">Password</label>
-                <input class="form-control" type="password" id="password" minlength="6">
-            </div>
-
-            <button class="btn btn-primary mt-3 mb-3" id="loginButton" type="submit">Login</button>
-
-            <br>
-
-            <p>Don't have an account?</p>
-            <a href="./register/index.html">Register Here!</a>
-        </form>
-
+        </div>
     </main>
 
     <footer></footer>

@@ -53,6 +53,21 @@ header {
     max-width: 100%; /* Ensure it spans the full width */
 }
 
+header h1 {
+    text-align: center;
+    color: #fff; /* Change text color to white */
+    font-size: 2.5em; /* Increase font size */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Adjusting the container for publishing posts */
 .container.bg-success-subtle {
     margin: 20px auto; /* Center horizontally and add top margin */
@@ -134,4 +149,32 @@ header {
 html,
 body {
     overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.me-3 {
+    margin-right: 1rem;
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.fw-light {
+    font-weight: 300;
 }

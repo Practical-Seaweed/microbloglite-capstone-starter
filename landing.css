@@ -1,1 +1,38 @@
 /* Landing Page CSS */
+body, html {
+    height: 100%;
+    margin: 0;
+}
+.container {
+    background-color: #f8f9fa; /* Example background color */
+    padding: 20px;
+    border: 1px solid #ced4da; /* Example border */
+    border-radius: 8px; /* Example border radius */
+    width: 500px !important; /* Adjust width as needed */
+    margin: 0; /* Reset margin to ensure centering */
+}
+
+/* .content-wrapper {
+    display: flex;
+    align-items: center;
+} */
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+header h1 {
+    text-align: center;
+    color: #fff; /* Change text color to white */
+    font-size: 2.5em; /* Increase font size */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 10px;
+    border-radius: 8px;
+    width: 500px;
+}

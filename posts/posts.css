@@ -53,6 +53,21 @@ header {
     max-width: 100%; /* Ensure it spans the full width */
 }
 
+header h1 {
+    text-align: center;
+    color: #fff; /* Change text color to white */
+    font-size: 2.5em; /* Increase font size */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Adjusting the container for publishing posts */
 .container.bg-success-subtle {
     margin: 20px auto; /* Center horizontally and add top margin */
